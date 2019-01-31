@@ -2,6 +2,7 @@
 # pip3 install pandas
 # pip3 install tweepy
 # pip3 install vaderSentiment
+# pip3 install maplotlib for ploting graphs
 
 import tweepy
 import pandas as pd
@@ -20,7 +21,7 @@ auth.set_access_token(secret.access_token, secret.access_token_secret)
 api = tweepy.API(auth)
 
 # search tweets with some keywords
-tweets = api.search('IndianFootball', count=300, tweet_mode='extended')
+tweets = api.search('Linux', count=300, tweet_mode='extended')
 data = pd.DataFrame(data=[tweet.full_text for tweet in tweets], columns=['Tweets'])
 
 # print the first 10 data
@@ -50,8 +51,8 @@ for index, row in data.iterrows():
 
 se = pd.Series(l)
 data['polarity'] = se.values
-
-# print(data.head(100))
+#to print in tabular form
+print(data.head(100))
 
 positive = counter['positive']
 negative = counter['negative']
@@ -70,5 +71,5 @@ plt.pie(
     startangle=90
 )
 
-plt.title("Sentiment")
+plt.title("Sentiment_Analysis")
 plt.show()
