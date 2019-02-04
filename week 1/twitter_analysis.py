@@ -21,7 +21,7 @@ auth.set_access_token(secret.access_token, secret.access_token_secret)
 api = tweepy.API(auth)
 
 # search tweets with some keywords
-tweets = api.search('Linux', count=300, tweet_mode='extended')
+tweets = api.search('Modi', count=300, tweet_mode='extended')
 data = pd.DataFrame(data=[tweet.full_text for tweet in tweets], columns=['Tweets'])
 
 # print the first 10 data
